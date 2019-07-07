@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="html_builder_editor" inherit_id="website.assets_editor" name="HTML Builder Resources">
+            <xpath expr="/t" position="inside">
+                <script type="text/javascript" src="/html_form_builder_snippets/static/src/js/html.form.builder.snippets.editor.js" />
+            </xpath>
+        </template>
+
+        <template id="html_builder_front_assert" inherit_id="website.assets_frontend" name="HTML Builder Front Asserts">
+            <xpath expr="/t" position="inside">
+                <script src="/html_form_builder_snippets/static/src/js/api.js"></script>
+            </xpath>
+        </template>
+
+        <template id="website_form_builder_options" name="Form Builder Options" inherit_id="website.snippet_options">
+            <xpath expr="//div" position="after">
+                <div data-js='html_form_builder'
+                    data-selector=".html_form"
+                    data-drop-in=".oe_structure, [data-oe-type=html]">
+                </div>
+                <div data-js='html_form_builder_new'
+                    data-selector=".html_form_new"
+                    data-drop-in=".oe_structure, [data-oe-type=html]">
+                </div>
+                <div data-js='html_form_builder_field'
+		    data-selector=".html_form_field"
+		    data-drop-in=".form_fields, [data-oe-type=html]">
+                </div>
+                <div data-js='html_form_builder_captcha'
+		    data-selector=".html_form_captcha"
+		    data-drop-in=".form_fields, [data-oe-type=html]">
+                </div>
+                    <div data-js='field-style'
+		        data-selector=".html_form_field">
+		        <li class="dropdown-submenu">
+		            <a tabindex="-1" href="#">Field Width</a>
+		            <ul class="dropdown-menu">
+		                <li data-toggle_class="col-md-12"><a>Full Width</a></li>
+		                <li data-toggle_class="col-md-6"><a>1/2 Width</a></li>
+		                <li data-toggle_class="col-md-4"><a>1/3 Width</a></li>
+		                <li data-toggle_class="col-md-3"><a>1/4 Width</a></li>
+		            </ul>
+		        </li>
+		    </div>
+
+            </xpath>
+        </template>
+
+        <template id="html_navbar" inherit_id="website.snippets" name="HTML Forms Navbar">
+    
+            <xpath expr="//div[@id='o_scroll']" position="inside">
+            
+                <div id="snippet_form" class="o_panel">
+                    <div class="o_panel_header">
+                        <span class="fa-stack">
+                            <i class="fa fa-align-justify fa-stack-1x"></i>
+                        </span> Form Builder
+                    </div>
+                    <div class="o_panel_body">
+                        <t t-snippet="html_form_builder_snippets.s_form" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_form.jpg"/>
+                        <t t-snippet="html_form_builder_snippets.s_form_new" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_form_new.jpg"/>                        
+                        <t t-snippet="html_form_builder_snippets.s_textbox" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_field_textbox.jpg"/>
+                        <t t-snippet="html_form_builder_snippets.s_date_picker" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_field_date_picker.jpg"/>
+                        <t t-snippet="html_form_builder_snippets.s_textarea" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_field_textarea.jpg"/>            
+                        <t t-snippet="html_form_builder_snippets.s_dropbox" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_field_dropbox.jpg"/>
+                        <t t-snippet="html_form_builder_snippets.s_dropbox_m2o" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_field_dropbox.jpg"/>
+                        <t t-snippet="html_form_builder_snippets.s_radio_group_selection" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_field_radio_group.jpg"/>
+                        <t t-snippet="html_form_builder_snippets.s_checkbox_boolean" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_field_checkbox.jpg"/>
+                        <t t-snippet="html_form_builder_snippets.s_captcha" t-thumbnail="/html_form_builder_snippets/static/src/img/ui/snippet_thumb_field_captcha.jpg"/>
+                    </div>
+
+                </div>            
+
+            </xpath>    
+    
+        </template>
+
+        <template id="s_form" name="Existing HTML Form">
+            <section class="html_form">
+                <div class="container">
+                    <h2>My Form</h2>
+                    <div id="html_fields" class="form_fields">
+		                                 
+		    </div>
+                    <input type="submit" class="btn btn-primary btn-lg" value="Send"/>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_form_new" name="New HTML Form">
+            <section class="html_form_new">
+                <div class="container">
+                    <h2>My Form</h2>
+                    <div id="html_fields" class="form_fields">
+		                                 
+		    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Send</button>
+                </div>
+            </section>
+        </template>
+        
+        <template id="s_textbox" name="Textbox">
+            <section data-form-type="textbox" data-field-id="0" class="html_form_field col-md-12">
+                <div class="form-group">
+                    <label for="field1">Field 1</label>
+                    <input type="text" name="field1" class="form-control"/>
+                </div>
+            </section>
+        </template>   
+
+        <template id="s_date_picker" name="Date Picker">
+            <section data-form-type="date_picker" data-field-id="0" class="html_form_field col-md-12">
+                <div class="form-group">
+                    <label for="field1">Field 1</label>
+                    <input type="text" name="field1" class="form-control"/>
+                </div>
+            </section>
+        </template>   
+
+        <template id="s_radio_group_selection" name="Radio Group(Selection)">
+            <section data-form-type="radio_group_selection" data-field-id="0" class="html_form_field col-md-12">
+                <div class="form-group">
+                    <label for="field1">Field 1</label><br/>
+                    <input type="radio" name="field1"/>Option 1<br/>
+                    <input type="radio" name="field1"/>Option 2<br/>
+                    <input type="radio" name="field1"/>Option 3<br/>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_checkbox_boolean" name="Checkbox(Boolean)">
+            <section data-form-type="checkbox_boolean" data-field-id="0" class="html_form_field col-md-12">
+                <div class="checkbox">
+                    <label><input type="checkbox" name="field1"/>I Agree</label>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_textarea" name="Textarea">
+            <section data-form-type="textarea" data-field-id="0" class="html_form_field  col-md-12">
+                <div class="form-group">
+                    <label for="field1">Field 1</label>
+                    <textarea class="form-control" name="field1"/>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_dropbox" name="Dropbox(Selection)">
+            <section data-form-type="dropbox" data-field-id="0" class="html_form_field  col-md-12">
+                <div class="form-group">
+                    <label for="field1">Field 1</label>
+                    <select class="form-control" name="field1">
+                        <option value="">Select an option</option>
+                    </select>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_dropbox_m2o" name="Dropbox(M2O)">
+            <section data-form-type="dropbox_m2o" data-field-id="0" class="html_form_field  col-md-12">
+                <div class="form-group">
+                    <label for="field1">Field 1</label>
+                    <select class="form-control" name="field1">
+                        <option value="">Select an option</option>
+                    </select>
+                </div>
+            </section>
+        </template>
+        
+        <template id="s_captcha" name="Captcha">
+            <section class="html_form_captcha col-md-12 form-group">
+                Placeholder Captcha String
+            </section>
+        </template>
+
+    </data>
+</openerp>
